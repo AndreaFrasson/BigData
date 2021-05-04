@@ -1,5 +1,5 @@
 rm(list = ls())
-setwd("C:/Users/and99/Desktop/progetto BIDATA/")
+setwd("C:/Users/and99/Desktop/progetto BIDATA/") #Settare la propria wd
 
 source("Normalizzare.r")
 library(tm)
