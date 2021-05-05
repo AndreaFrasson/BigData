@@ -1,4 +1,5 @@
 library(TextWiller)
+source("Slang.r")
 
 ##toglie gli spazi in prima e ultima posizione
 .togliSpaziEsterni <- function(testo){ 
@@ -17,7 +18,6 @@ library(TextWiller)
   conteggi
 }
 
-
 normalizzare <- function(testo, tolower=TRUE,normalizzahtml=TRUE,
                          normalizzacaratteri=TRUE,
                          normalizzaemote=TRUE,
@@ -33,10 +33,10 @@ normalizzare <- function(testo, tolower=TRUE,normalizzahtml=TRUE,
                          verbatim=TRUE, remove=TRUE,removeUnderscore=FALSE, stopwords = stopwords("it")){
   Sys.setlocale("LC_ALL", "")
   if(preprocessingEncoding) testo<-preprocessingEncoding(testo,
-                                                         encoding=encoding,
-                                                         sub=sub,
+                                                       encoding=encoding,
+                                                        sub=sub,
                                                          suppressInvalidTexts=suppressInvalidTexts,
-                                                         verbatim=verbatim)
+                                                       verbatim=verbatim)
   #######################
   # PREPROCESSING #
   #######################
@@ -59,7 +59,7 @@ normalizzare <- function(testo, tolower=TRUE,normalizzahtml=TRUE,
     if(normalizzaEmoticons) testo<-normalizzaEmoticons(testo)
     # normalizza slang
     #source(paste(functiondir,"/normalizzaslang.R",sep=""), .GlobalEnv)
-    if(normalizzaslang) testo <- normalizzaslang(testo,perl=perl)
+    if(normalizzaslang) testo <- normalizzareslang(testo,perl=perl)
     # tolower
     if(tolower) testo <- tryTolower(testo,ifErrorReturnText=TRUE)
     if(is.null(remove)) remove=TRUE
