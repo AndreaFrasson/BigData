@@ -1,4 +1,3 @@
-library(TextWiller)
 source("Slang.r")
 
 ##toglie gli spazi in prima e ultima posizione
@@ -7,8 +6,6 @@ source("Slang.r")
   testo <- gsub("[[:blank:]]*$","",testo)
   testo
 }
-
-##########################
 
 .contaStringhe  <- function(testo,
                             stringhe=c("\\?","\\!","#","@","(???|euro)","(\\$|dollar)")                            
